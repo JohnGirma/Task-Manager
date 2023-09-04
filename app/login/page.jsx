@@ -20,7 +20,7 @@ function LoginPage() {
     }
 
   return (
-    <form onSubmit={onLogin} className="w-1/2"> 
+    <form onSubmit={onLogin} className="w-1/2 "> 
         <label htmlFor="">
             <span>Email:</span>
             <input type="text" 
