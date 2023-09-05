@@ -15,8 +15,14 @@ function NavBar() {
             placeholder='blur'
         />
         <h1>hi john</h1>
+        <div className='flex items-center gap-5 ml-20'>
         <Link href="/">Dashboard</Link>
         <Link href="/tickets">Tickets</Link>
+        <Link href="/login">Login</Link>
+        <Link href="/signup">
+          <button className="btn-primary">Signup</button>
+        </Link>
+        </div>
 
     </nav>
   )

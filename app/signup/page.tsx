@@ -22,18 +22,23 @@ function SignUpPage() {
             setLoading(true)
             const response =await axios.post("/api/users/signup",user)
             toast.success('Successfully created!');
-            console.log("SignUp SUCCESS" ,response.data)
+            console.log("SignUp SUCCESS" )
             router.push("/login");
-        } catch (error) {
+        } catch (error:any) {
             toast.error('This is an error!');
             toast.error(error.message);
             console.log("Signup failed", error.message);
+        }finally{
+            setLoading(false)
         }
         
     }
 
   return (
-    <form onSubmit={onSignup} className="w-1/2">
+    <main className="flex flex-col items-center justify-center min-h-screen ">
+        <h1>{loading ? "Processing..." : "Signup"}</h1>
+        <hr />
+    <form onSubmit={onSignup} className="w-1/2 ">
         <label htmlFor="">
             <span>Username:</span>
             <input type="text" 
@@ -57,9 +62,11 @@ function SignUpPage() {
         </label>
         <button className='btn-primary'>SignUp</button>
         
-              <Link href="/login">SignIn</Link>
-              <Toaster />
+              <Link href="/login">Visit Login page</Link>
+              
     </form>
+    <Toaster />
+    </main>
   )
 }
 
