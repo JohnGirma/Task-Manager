@@ -3,7 +3,7 @@ import react,{useState} from 'react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 import axios from "axios";
-import { toast } from "react-hot-toast";
+import toast ,{ Toaster } from "react-hot-toast";
 
 
 function SignUpPage() {
@@ -58,7 +58,7 @@ function SignUpPage() {
         <button className='btn-primary'>SignUp</button>
         
               <Link href="/login">SignIn</Link>
-      
+              <Toaster />
     </form>
   )
 }
