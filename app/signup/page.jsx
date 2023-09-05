@@ -18,7 +18,17 @@ function SignUpPage() {
 
 
     const onSignup= async()=>{
-        
+        try {
+            setLoading(true)
+            const response =await axios.post("/api/users/signup",user)
+            toast.success('Successfully created!');
+            console.log("SignUp SUCCESS" ,response.data)
+            router.push("/login");
+        } catch (error) {
+            toast.error('This is an error!');
+            toast.error(error.message);
+            console.log("Signup failed", error.message);
+        }
         
     }
 
