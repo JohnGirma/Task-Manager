@@ -2,6 +2,8 @@
 import react,{useState} from 'react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
+import axios from "axios";
+import { toast } from "react-hot-toast";
 
 
 function SignUpPage() {
@@ -12,10 +14,11 @@ function SignUpPage() {
         password:"",
         username:"",
     })
+    const [loading, setLoading]=useState(false)
 
 
-    const onSignup= async(e)=>{
-        e.preventDefault()
+    const onSignup= async()=>{
+        
         
     }
 

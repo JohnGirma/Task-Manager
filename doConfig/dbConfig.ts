@@ -10,6 +10,10 @@ export async function connect() {
         connection.on('connected',()=>{
             console.log("successfully")
         });
+        connection.on('error',(err)=>{
+            console.log("connection error" +err)
+            process.exit()
+        });
     } catch (error) {
         console.log("something wrong")
         console.log(error)
