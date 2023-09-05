@@ -46,20 +46,22 @@ function LoginPage() {
     <form onSubmit={onLogin} className="w-1/2 "> 
         <label >
             <span>Email:</span>
+        </label>
             <input type="text" 
             required
             id="email"
             onChange={(e)=>setUser({...user,email:e.target.value})}
             value={user.email}/>
-        </label>
+        
         <label >
             <span>Password:</span>
+            </label>
             <input type="password" 
             required
             id="password"
             onChange={(e)=>setUser({...user,password:e.target.value})}
             value={user.password}/>
-        </label>
+       
         <button className='btn-primary' type='submit'>Login</button>
         
               <Link href="/signup">Create account</Link>
