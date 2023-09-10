@@ -17,7 +17,8 @@ function SignUpPage() {
     const [loading, setLoading]=useState(false)
 
 
-    const onSignup= async()=>{
+    const onSignup= async(e)=>{
+        e.preventDefault()
         try {
             setLoading(true)
             const response =await axios.post("/api/users/signup",user)

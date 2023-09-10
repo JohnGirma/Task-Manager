@@ -8,7 +8,7 @@ export async function connect() {
 
 
         connection.on('connected',()=>{
-            console.log("successfully")
+            console.log("successfully connected with databass")
         });
         connection.on('error',(err)=>{
             console.log("connection error" +err)

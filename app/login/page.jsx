@@ -16,24 +16,21 @@ function LoginPage() {
     })
 
 
-    const onLogin= async()=>{
-        
+    const onLogin= async(e)=>{
+        e.preventDefault()
         try {
             setLoading(true)
             const response =await axios.post("/api/users/login",user)
-            // let data=await response.json()
-            // console.log("data",data)
-            // toast.success('Logged in Successfully !');
-            // console.log("Login SUCCESS" ,response.json())
-            router.push('/');
+            
+            toast.success('Logged in Successfully !');
+            console.log("Login SUCCESS" ,response.data)
+            router.push('/tickets');
         } catch (error) {
             toast.error('This is an error!');
             toast.error(error);
             console.log("Login failed", error.message);
         }finally{
-            toast.success('Logged in Successfully !');
-            console.log("Login SUCCESS" ,response.json())
-            setLoading(false)
+           setLoading(false)
         }
         
     }
