@@ -25,7 +25,7 @@ function SignUpPage() {
             toast.success('Successfully created!');
             console.log("SignUp SUCCESS" )
             router.push("/login");
-        } catch (error:any) {
+        } catch (error) {
             toast.error('This is an error!');
             toast.error(error.message);
             console.log("Signup failed", error.message);

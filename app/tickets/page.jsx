@@ -1,22 +1,37 @@
+"use client"
 import React from 'react'
 import { Suspense } from 'react'
 import Loading from '../loading'
 import TicketList from './TicketList'
 import Link from 'next/link'
+import axios from 'axios'
+import toast  from "react-hot-toast";
+import { useRouter } from 'next/navigation'
 
 function ticket() {
+    const router=useRouter()
+    const logout=async()=>{
+        try {
+          await axios.get('/api/users/logout')
+          toast.success('Logout successful')
+          router.push('/login')          
+        } catch (error) {
+            console.log(error.mesage)
+            toast.error(error.mesage)
+    }}
   return (
     <main>
         <nav className='flex justify-between space-x-4'>
             <div>
-                <h2>Tickets</h2>
-                <p><small>currently open Tickets</small></p>
+                <h2>Name</h2>
+                <p><small>welcome</small></p>
             </div>
-            <div className=''>
-            <button class="btn-primary">
-              <Link href="/tickets/create">Create</Link>
+           
+            <button className="btn-primary" 
+              onClick={logout}>
+              Logout
               </button>
-            </div>
+           
         </nav>
         <Suspense fallback={<Loading/>}>
         <TicketList/>
@@ -24,7 +39,7 @@ function ticket() {
        
     </main>
    
-  )
-}
+  )}
+  
 
-export default ticket
+    export default ticket
