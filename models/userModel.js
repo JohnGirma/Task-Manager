@@ -1,5 +1,25 @@
 import mongoose from "mongoose";
 
+// const ticketSchema=new mongoose.Schema(
+//     {
+//         title: {
+//             type: String,
+//            default: "default tittle"
+            
+//         },
+//         body: {
+//             type: String,
+//            default:"default body"
+            
+//         },
+//         priority: {
+//             type: String,
+//            default:"default priority"
+                    
+//         },
+
+//     })
+
 const userSchema = new mongoose.Schema({
     username: {
         type: String,
@@ -14,6 +34,7 @@ const userSchema = new mongoose.Schema({
     password: {
         type: String,
         required: [true, "Please provide a password"],
+        
     },
     isVerfied: {
         type: Boolean,
@@ -23,6 +44,18 @@ const userSchema = new mongoose.Schema({
         type: Boolean,
         default: false,
     },
+    isMain: {
+        type: Boolean,
+        default: false,
+    },
+
+    tickets:{
+        title:String,
+        body:String,
+        priority:String,
+
+    },
+
     forgotPasswordToken: String,
     forgotPasswordTokenExpiry: Date,
     verifyToken: String,

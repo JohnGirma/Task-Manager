@@ -8,7 +8,7 @@ async function getTickets(){
     })
     const res=await fetch('http://localhost:3004/tickets',{
     next:{
-        revalidate:0
+        revalidate:60
     }
         })
     return res.json()
