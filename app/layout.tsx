@@ -1,9 +1,9 @@
 import './globals.css'
 import type { Metadata } from 'next'
+import {Toaster} from "react-hot-toast";
 import { Rubik } from 'next/font/google'
 
-//componets
-import Navbar from './components/NavBar'
+
 
 const rubik = Rubik({ subsets: ['latin'] })
 
@@ -20,8 +20,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={rubik.className}>
-        <Navbar/>
+        
         {children}
+        <Toaster position='top-right' />
         </body>
     </html>
   )

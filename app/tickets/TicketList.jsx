@@ -8,7 +8,7 @@ async function getTickets(){
     })
     const res=await fetch('http://localhost:3004/tickets',{
     next:{
-        revalidate:0
+        revalidate:60
     }
         })
     return res.json()
@@ -19,6 +19,17 @@ async function TicketList() {
     
   return (
     <>
+    <nav className='flex justify-between space-x-4'>
+            <div>
+                <h2>Tickets</h2>
+                <p><small>currently open Tickets</small></p>
+            </div>
+           
+            <button className="btn-secondary">
+              <Link href="/tickets/create">Create</Link>
+              </button>
+           
+        </nav>
     {tickets.map((ticket)=>(
         <div key={ticket.id} className='card my-5 '>
             <Link href={`/tickets/${ticket.id}`}>
