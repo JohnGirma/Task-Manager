@@ -1,24 +1,24 @@
 import mongoose from "mongoose";
 
-// const ticketSchema=new mongoose.Schema(
-//     {
-//         title: {
-//             type: String,
-//            default: "default tittle"
+const ticketSchema=new mongoose.Schema(
+    {
+        title: {
+            type: String,
+           default: "default tittle"
             
-//         },
-//         body: {
-//             type: String,
-//            default:"default body"
+        },
+        body: {
+            type: String,
+           default:"default body"
             
-//         },
-//         priority: {
-//             type: String,
-//            default:"default priority"
+        },
+        priority: {
+            type: String,
+           default:"default priority"
                     
-//         },
+        },
 
-//     })
+    })
 
 const userSchema = new mongoose.Schema({
     username: {
@@ -49,12 +49,7 @@ const userSchema = new mongoose.Schema({
         default: false,
     },
 
-    tickets:{
-        title:String,
-        body:String,
-        priority:String,
-
-    },
+    tickets:ticketSchema,
 
     forgotPasswordToken: String,
     forgotPasswordTokenExpiry: Date,
